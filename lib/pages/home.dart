@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:singleton_and_factory/item_store.dart';
 
 class HomePage extends StatefulWidget {
@@ -32,6 +30,7 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             TextField(
               controller: _controller,
+              // keyboardType: TextInputType.name,
               decoration: const InputDecoration(
                 labelText: 'ユーザー名',
                 icon: Icon(Icons.account_box),
@@ -39,7 +38,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ElevatedButton(
               onPressed: () {
-                ItemStore().set('name', _controller.value);
+                ItemStore().set('name', _controller.value.text);
                 Navigator.of(context).pushNamed('/second');
               },
               child: const Text('Next'),
